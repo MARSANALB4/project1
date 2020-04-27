@@ -21,6 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            //atributo para diferenciar el tipo de usuario
+            $table->enum('userType', ['nutricionista', 'paciente']);
         });
     }
 

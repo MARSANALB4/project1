@@ -59,6 +59,22 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="userType" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de usuario') }}</label>
+
+                                <div class="col-md-6">
+                                    <input type="radio" id="nutricionista" name="userType" value="nutricionista" class="@error('userType') is-invalid @enderror" name="userType" value="{{ old('userType') }}" required autocomplete="userType" autofocus>
+                                    <label for="nutricionista">Nutricionista</label><br>
+                                    <input type="radio" id="paciente" name="userType" value="paciente" class="@error('userType') is-invalid @enderror" name="userType" value="{{ old('userType') }}" required autocomplete="userType" autofocus>
+                                    <label for="paciente">Paciente</label><br>
+
+                                    @error('userType')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
