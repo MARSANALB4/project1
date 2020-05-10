@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'userType'
+        'name', 'surname', 'email', 'password', 'dni', 'edad', 'sexo','telefono', 'domicilio',
+        'especialidad_id','userType'
     ];
 
     /**
@@ -27,4 +28,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function citas()
+    {
+        return $this->hasMany('App\Cita');
+    }
+    public function objetivos()
+    {
+        return $this->hasMany('App\Objetivo');
+    }
+    public function especialidad()
+    {
+        return $this->belongsTo('App\Especialidad');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->name .' '.$this->surname;
+    }
 }

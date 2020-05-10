@@ -60,22 +60,52 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/citas') }}">
-                                        Nutricionistas
-                                    </a>
-                                </li>
 
-                                <li>
-                                    <a href="{{ url('/especialidades') }}">
-                                        Especialidades
-                                    </a>
-                                </li>
 
-                                <li>
-                                    <a href="{{ url('/pacientes') }}">
-                                        Pacientes
-                                    </a>
+                                    @if(Auth::user()->userType =='paciente')
+                                        <a class="dropdown-item" href="{{ route('misObjetivos') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('misObjetivos-form').submit();">
+                                            {{ __('Mis Objetivos') }}
+                                        </a>
+
+                                        <form id="misObjetivos-form" action="{{ route('misObjetivos') }}" method="GET" style="display: none;">
+                                            @csrf
+                                        </form>
+                                        @endif
+                                        @if(Auth::user()->userType =='paciente')
+                                            <a class="dropdown-item" href="{{ route('misCitas') }}"
+                                               onclick="event.preventDefault();
+                                                         document.getElementById('misCitass-form').submit();">
+                                                {{ __('Mis Citas') }}
+                                            </a>
+
+                                            <form id="misCitas-form" action="{{ route('misCitas') }}" method="GET" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        @endif
+
+                                        @if(Auth::user()->userType =='paciente')
+
+                                            <li>
+                                                <a href="{{ url('/misObjetivos') }}"
+                                                    onclick="event.preventDefault();
+                                                    document.getElementById('misObjetivos-form').submit();">
+                                                    Mis Objetivos
+                                                </a>
+                                            </li>
+                                            @endif
+                                        @if(Auth::user()->userType =='paciente')
+
+                                            <li>
+                                                <a href="{{ url('/misCitass') }}"
+                                                   onclick="event.preventDefault();
+                                                    document.getElementById('misCitas-form').submit();">
+                                                    Mis Citas
+                                                </a>
+                                            </li>
+                                            @endif
+
                                 </li>
 
                                 <li>
@@ -83,37 +113,30 @@
                                         Citas
                                     </a>
                                 </li>
+                                    @if(Auth::user()->userType =='nutricionista')
+
                                 <li>
-                                    <a href="{{ url('/citas') }}">
-                                        Mediciones
+                                    <a href="{{ url('/objetivos') }}">
+                                        Objetivos
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/citas') }}">
-                                       Objetivos
-                                    </a>
+                                        <a href="{{ url('/especialidades') }}">
+                                            Especialidades
+                                        </a>
                                 </li>
-                                <li>
-                                    <a href="{{ url('/citas') }}">
-                                        Dietas
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/citas') }}">
-                                        Planes de alimentacion
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/citas') }}">
-                                        Alimentos
-                                    </a>
-                                </li>
+                                    @endif
+
+
+
+
+
 
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Salir
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">

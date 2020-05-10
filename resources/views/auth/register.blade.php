@@ -23,6 +23,19 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group{{ $errors->has('surname') ? ' has-error' : '' }}">
+                                <label for="surname" class="col-md-4 control-label">Apellidos</label>
+
+                                <div class="col-md-6">
+                                    <input id="surname" type="text" class="form-control" name="surname" value="{{ old('surname') }}" required autofocus>
+
+                                    @if ($errors->has('surname'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('surname') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label for="email" class="col-md-4 control-label">E-Mail</label>
@@ -39,7 +52,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
+                                <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password" required>
@@ -53,14 +66,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="password-confirm" class="col-md-4 control-label">Confirmar Password</label>
+                                <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="userType" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de usuario') }}</label>
+                                <label for="userType" class="col-md-4 col-form-label text-md-right">Tipo de usuario</label>
 
                                 <div class="col-md-6">
                                     <input type="radio" id="nutricionista" name="userType" value="nutricionista" class="@error('userType') is-invalid @enderror" name="userType" value="{{ old('userType') }}" required autocomplete="userType" autofocus>
