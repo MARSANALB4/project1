@@ -10,9 +10,10 @@ class Especialidad extends  Model
 {
     protected $fillable = ['name'];
 
-    public function nutricionistas()
+
+    public function nutricionistaUser()
     {
-        return $this->hasMany('App\Nutricionista');
+        return $this->hasMany('App\User');
     }
 
 }

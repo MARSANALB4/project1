@@ -25,10 +25,18 @@ class CreateUsersTable extends Migration
 
             //atributos de las clases hijas Paciente
             $table->string('dni')->nullable();
-            $table->string('edad')->nullable();
-            $table->string('sexo')->nullable();
+            $table->Date('edad')->nullable();
+            $table->enum('sexo', ['mujer', 'hombre'])->nullable();;
             $table->string('telefono')->nullable();
             $table->string('domicilio')->nullable();
+            $table->enum('actividad', ['sedentario', 'pocoActivo',
+                'medianamenteActivo', 'muyActivo', 'extraActivo'])->nullable();
+
+
+            //atributo de las clases hijas NUTRICIONISTA
+            $table->unsignedBigInteger('especialidad_id')->nullable();
+            $table->foreign('especialidad_id')->references('id')->on('especialidads');
+
 
 
             //atributo para diferenciar el tipo de usuario

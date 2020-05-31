@@ -20,17 +20,21 @@
                         <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <th>peso objetivo</th>
-                                <th>imc objetivo</th>
-                                <th>paciente</th>
+                                <th>Fecha inicio</th>
+                                <th>Fecha fin</th>
+                                <th>Peso objetivo</th>
+                                <th>IMC objetivo</th>
+                                <th>Paaciente</th>
 
                                 <th colspan="2">Acciones</th>
                             </tr>
                             @foreach ($objetivos as $objetivo)
                             <tr>
+                                <td>{{ $objetivo->fecha_inicio }}</td>
+                                <td>{{ $objetivo->fecha_fin}}</td>
                                 <td>{{ $objetivo->peso}}</td>
                                 <td>{{ $objetivo->imc}}</td>
-                                <td>{{ $objetivo->paciente_id}}</td>
+                                <td>{{ $objetivo->pacienteUser->fullName}}</td>
 
                                 <td>
                                     {!! Form::open(['route' => ['objetivos.edit',$objetivo->id], 'method' => 'get']) !!}

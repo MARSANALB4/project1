@@ -29,9 +29,9 @@
 
                                 <tr>
                                     <td>{{ $cita->fecha_hora }}</td>
-                                    <td>{{ $cita->nutricionista_id}}</td>
+                                    <td>{{ $cita->nutricionistaUser->fullName}}</td>
 
-                                    <td>{{ $cita->paciente_id}}</td>
+                                    <td>{{ $cita->pacienteUser->fullName}}</td>
 
                                     <td>{{ $cita->localizacion }}</td>
 

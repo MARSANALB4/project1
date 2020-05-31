@@ -15,6 +15,13 @@
 
                         {!! Form::label('name', 'Nombre de la especialidad') !!}
                         {!! Form::text('name',$especialidad->name,['class'=>'form-control', 'required', 'autofocus']) !!}
+
+                        <div class="form-group">
+                            {!!Form::label('nutricionista_id', 'Nutricionista') !!}
+                            <br>
+                            {!! Form::select('nutricionista_id', $nutricionistas, $cita->nutricionista_id, ['class' => 'form-control']) !!}
+                        </div>
+
                         </div>
                         {!! Form::submit('Actualizar',['class'=>'btn-primary btn']) !!}
                         {!! Form::close() !!}

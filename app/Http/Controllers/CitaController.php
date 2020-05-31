@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cita;
 use App\Nutricionista;
 use App\Paciente;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,7 +47,10 @@ class CitaController extends Controller
      */
     public function create()
     {
-        return view('citas.create');
+        $pacientes=User::all()->where('userType','=','paciente')->pluck('name','id');
+        $nutricionistas=User::all()->where('userType','=','nutricionista')->pluck('name','id');
+
+        return view('citas.create', ['pacientes'=>$pacientes, 'nutricionistas'=>$nutricionistas ]);
 
     }
 
@@ -100,8 +104,12 @@ class CitaController extends Controller
     {
 
         $cita = Cita::find($id);
+        $pacientes=User::all()->where('userType','=','paciente')->pluck('name','id');
+        $nutricionistas=User::all()->where('userType','=','nutricionista')->pluck('name','id');
 
-        return view('citas/edit',['cita'=> $cita]);
+
+
+        return view('citas/edit',['cita'=> $cita,'pacientes'=>$pacientes, 'nutricionistas'=>$nutricionistas]);
     }
 
     /**

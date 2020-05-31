@@ -24,12 +24,12 @@
                         <div class="form-group">
                             {!!Form::label('nutricionista_id', 'Nutricionista') !!}
                             <br>
-                            {!! Form::select('nutricionista_id', $nutricionistas=\App\User::all()->where('userType','=','nutricionista'), ['class' => 'form-control']) !!}
+                            {!! Form::select('nutricionista_id', $nutricionistas, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!!Form::label('paciente_id', 'Paciente') !!}
                             <br>
-                            {!! Form::select('paciente_id', $pacientes=\App\User::all()->where('userType','=','paciente'), ['class' => 'form-control']) !!}
+                            {!! Form::select('paciente_id', $pacientes, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!!Form::label('localizacion', 'Localizacion de la cita') !!}

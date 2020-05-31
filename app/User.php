@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'email', 'password', 'dni', 'edad', 'sexo','telefono', 'domicilio',
+        'name', 'surname', 'email', 'password', 'dni', 'edad', 'sexo','telefono', 'domicilio', 'actividad',
         'especialidad_id','userType'
     ];
 
@@ -39,11 +39,21 @@ class User extends Authenticatable
     }
     public function especialidad()
     {
-        return $this->belongsTo('App\Especialidad');
+        return $this->belongsTo('App\Especialidad', 'especialidad_id');
     }
 
-    public function getFullNameAttribute()
+     public function getFullNameAttribute()
     {
         return $this->name .' '.$this->surname;
+    }
+
+    public function plans()
+    {
+        return $this->hasMany('App\Plan');
+    }
+
+    public function mediciones()
+    {
+        return $this->hasMany('App\Medicion');
     }
 }

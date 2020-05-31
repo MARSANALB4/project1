@@ -20,7 +20,7 @@ class CreateCitasTable extends Migration
 
             $table->unsignedBigInteger('paciente_id');
             $table->unsignedBigInteger('nutricionista_id');
-            $table->foreign('paciente_id')->references('id')->on('users');
+            $table->foreign('paciente_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('nutricionista_id')->references('id')->on('users');
 
             $table->timestamps();

@@ -15,10 +15,12 @@ class CreateObjetivosTable extends Migration
     {
         Schema::create('objetivos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->Date('fecha_inicio');
+            $table->Date('fecha_fin');
             $table->string('peso');
             $table->string('imc');
             $table->unsignedBigInteger('paciente_id');
-            $table->foreign('paciente_id')->references('id')->on('users');
+            $table->foreign('paciente_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

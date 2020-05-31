@@ -14,6 +14,13 @@
                         <div class="form-group">
                         {!! Form::label('name', 'Nombre de la especialidad') !!}
                         {!! Form::text('name',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                        <div class="form-group">
+                            {!!Form::label('nutricionista_id', 'Nutricionista') !!}
+
+                            {!! Form::select('nutricionista_id', $nutricionistas, ['class' => 'form-control']) !!}
+                        </div>
+
+
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

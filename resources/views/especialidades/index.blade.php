@@ -13,14 +13,12 @@
                         {!!   Form::submit('Crear especialidad', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
 
-                        {!! Form::open(['route' => 'especialidades.destroyAll', 'method' => 'delete', 'class'=>'inline-important']) !!}
-                        {!!   Form::submit('Borrar todas', ['class'=> 'btn btn-danger','onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
-                        {!! Form::close() !!}
 
                         <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <th>Nombre</th>
+                                <th>Especialidad</th>
+
                                 <th colspan="2">Acciones</th>
                             </tr>
                             @foreach ($especialidades as $especialidad)

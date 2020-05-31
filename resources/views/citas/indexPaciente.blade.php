@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Objetivos</div>
+                    <div class="panel-heading">Mis citas</div>
 
                     <div class="panel-body">
                         @include('flash::message')
@@ -15,10 +15,8 @@
                             <tr>
                                 <th>Fecha</th>
                                 <th>Nutricionista</th>
-                                <th>Paciente</th>
                                 <th>Localizacion</th>
 
-                                <th colspan="2">Acciones</th>
                             </tr>
 
 
@@ -27,9 +25,8 @@
 
                                 <tr>
                                     <td>{{ $cita->fecha_hora }}</td>
-                                    <td>{{ $cita->nutricionista_id}}</td>
 
-                                    <td>{{ $cita->paciente_id}}</td>
+                                    <td>{{ $cita->nutricionistaUser->fullName}}</td>
 
                                     <td>{{ $cita->localizacion }}</td>
 

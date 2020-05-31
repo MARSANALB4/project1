@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Providers\Objetivo;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,7 +44,10 @@ class ObjetivoController extends Controller
      */
     public function create()
     {
-        return view('objetivos.create');
+
+        $users=User::all()->where('userType','=','paciente')->pluck('name','id');
+        return view('objetivos.create', ['users'=>$users]);
+
     }
 
     /**
@@ -55,6 +59,8 @@ class ObjetivoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'fecha_inicio' => 'required|date|',
+            'fecha_fin' => 'required|date|',
             'peso' => ['required', 'string', 'max:255'],
             'imc' => ['required', 'string', 'max:255'],
             'paciente_id' => ['required']
@@ -90,8 +96,9 @@ class ObjetivoController extends Controller
     public function edit($id)
     {
         $objetivo = Objetivo::find($id);
+        $users=User::all()->where('userType','=','paciente')->pluck('name','id');
 
-        return view('objetivos/edit',['objetivo'=>$objetivo]);
+        return view('objetivos/edit',['objetivo'=>$objetivo, 'users'=>$users]);
     }
 
     /**
@@ -104,6 +111,8 @@ class ObjetivoController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'fecha_inicio' => 'required|date|',
+            'fecha_fin' => 'required|date|',
             'peso' => ['required', 'string', 'max:255'],
             'imc' => ['required', 'string', 'max:255'],
             'paciente_id' => 'required|exists:users,id'

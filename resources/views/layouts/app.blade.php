@@ -61,70 +61,132 @@
 
                             <ul class="dropdown-menu" role="menu">
 
-
-                                    @if(Auth::user()->userType =='paciente')
-                                        <a class="dropdown-item" href="{{ route('misObjetivos') }}"
-                                           onclick="event.preventDefault();
+                                @if(Auth::user()->userType =='paciente')
+                                    <a class="dropdown-item" href="{{ route('misObjetivos') }}"
+                                       onclick="event.preventDefault();
                                                          document.getElementById('misObjetivos-form').submit();">
-                                            {{ __('Mis Objetivos') }}
+                                        {{ __('Mis Objetivos') }}
+                                    </a>
+
+                                    <form id="misObjetivos-form" action="{{ route('misObjetivos') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <br/>
+                                @endif
+                                    @if(Auth::user()->userType =='paciente')
+                                        <a class="dropdown-item" href="{{ route('misCitas') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('misCitas-form').submit();">
+                                            {{ __('Mis Citas') }}
                                         </a>
 
-                                        <form id="misObjetivos-form" action="{{ route('misObjetivos') }}" method="GET" style="display: none;">
+
+                                        <form id="misCitas-form" action="{{ route('misCitas') }}" method="GET" style="display: none;">
                                             @csrf
                                         </form>
-                                        @endif
-                                        @if(Auth::user()->userType =='paciente')
-                                            <a class="dropdown-item" href="{{ route('misCitas') }}"
-                                               onclick="event.preventDefault();
-                                                         document.getElementById('misCitass-form').submit();">
-                                                {{ __('Mis Citas') }}
-                                            </a>
+                                        <br/>
+                                    @endif
+                                    @if(Auth::user()->userType =='paciente')
+                                        <a class="dropdown-item" href="{{ route('misMedicionesAnaliticas') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('misMedicionesAnaliticas-form').submit();">
+                                            {{ __('Mis Mediciones Analiticas') }}
+                                        </a>
 
-                                            <form id="misCitas-form" action="{{ route('misCitas') }}" method="GET" style="display: none;">
-                                                @csrf
-                                            </form>
-                                        @endif
 
-                                        @if(Auth::user()->userType =='paciente')
+                                        <form id="misMedicionesAnaliticas-form" action="{{ route('misMedicionesAnaliticas') }}" method="GET" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endif
+                                    <br/>
+                                    @if(Auth::user()->userType =='paciente')
+                                        <a class="dropdown-item" href="{{ route('misMedicionesAntropometricas') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('misMedicionesAntropometricas-form').submit();">
+                                            {{ __('Mis Mediciones Antropometricas') }}
+                                        </a>
 
-                                            <li>
-                                                <a href="{{ url('/misObjetivos') }}"
-                                                    onclick="event.preventDefault();
-                                                    document.getElementById('misObjetivos-form').submit();">
-                                                    Mis Objetivos
-                                                </a>
-                                            </li>
-                                            @endif
-                                        @if(Auth::user()->userType =='paciente')
 
-                                            <li>
-                                                <a href="{{ url('/misCitass') }}"
-                                                   onclick="event.preventDefault();
-                                                    document.getElementById('misCitas-form').submit();">
-                                                    Mis Citas
-                                                </a>
-                                            </li>
-                                            @endif
+                                        <form id="misMedicionesAntropometricas-form" action="{{ route('misMedicionesAntropometricas') }}" method="GET" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endif
+                                    <br/>
+                                    @if(Auth::user()->userType =='paciente')
+                                        <a class="dropdown-item" href="{{ route('misPlanes') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('misPlanes-form').submit();">
+                                            {{ __('Mis Planes') }}
+                                        </a>
 
-                                </li>
 
+                                        <form id="misPlanes-form" action="{{ route('misPlanes') }}" method="GET" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endif
+
+
+
+
+                                @if(Auth::user()->userType =='nutricionista')
                                 <li>
-                                    <a href="{{ url('/citas') }}">
-                                        Citas
+                                    <a href="{{ url('/pacientes') }}">
+                                        Pacientes
                                     </a>
                                 </li>
-                                    @if(Auth::user()->userType =='nutricionista')
-
                                 <li>
                                     <a href="{{ url('/objetivos') }}">
                                         Objetivos
                                     </a>
                                 </li>
+
                                 <li>
                                         <a href="{{ url('/especialidades') }}">
                                             Especialidades
                                         </a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('/citas') }}">
+                                        Citas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/alimentos') }}">
+                                        Alimentos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/platos') }}">
+                                        Platos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/comidas') }}">
+                                        Comidas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/dietas') }}">
+                                        Dietas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/plans') }}">
+                                        Planes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/antropometricas') }}">
+                                        Mediciones Antropometricas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/analiticas') }}">
+                                        Mediciones Analiticas
+                                    </a>
+                                </li>
+
+
                                     @endif
 
 
