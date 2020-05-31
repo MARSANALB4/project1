@@ -90,7 +90,7 @@ class EspecialidadController extends Controller
         $especialidad = Especialidad::find($id);
         $nutricionistas=User::all()->where('userType','=','nutricionista')->pluck('name','id');
 
-        return view('especialidades/edit', ['nutricionistas'=>$nutricionistas ]);
+        return view('especialidades/edit', ['especialidad'=>$especialidad,'nutricionistas'=>$nutricionistas ]);
 
     }
 
@@ -106,6 +106,7 @@ class EspecialidadController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255'
         ]);
+        $nutricionistas=User::all()->where('userType','=','nutricionista')->pluck('name','id');
 
         $especialidad = Especialidad::find($id);
         $especialidad->fill($request->all());

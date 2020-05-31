@@ -28,7 +28,6 @@
                                 <th>V</th>
                                 <th>S</th>
                                 <th>D</th>
-                                <th>Total calorias</th>
 
 
                             </tr>
@@ -82,7 +81,6 @@
                                         {!! Form::close() !!}
 
                                     </td>
-                                    <td>{{ $plan->calorias}}</td>
 
 
 

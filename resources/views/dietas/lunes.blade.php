@@ -12,14 +12,17 @@
 
                         <table class="table table-striped table-bordered">
                             <tr>
+                                <th>Plan</th>
+
                                 <th>Comida</th>
                                 <th>Día de la semana</th>
                                 <th>Calorias</th>
-                                <th>Tortal Calorias</th>
 
                             </tr>
                             @foreach ($dieta as $dieta)
                             <tr>
+                                <td>{{ $dieta->plans->name}}</td>
+
                                 <td>{{ $dieta->comidas->name}}</td>
                                 <td>{{ $dieta->semanal}}</td>
                                 <td>{{ $dieta->calorias}}</td>

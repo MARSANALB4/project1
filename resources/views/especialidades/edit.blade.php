@@ -18,8 +18,8 @@
 
                         <div class="form-group">
                             {!!Form::label('nutricionista_id', 'Nutricionista') !!}
-                            <br>
-                            {!! Form::select('nutricionista_id', $nutricionistas, $cita->nutricionista_id, ['class' => 'form-control']) !!}
+
+                            {!! Form::select('nutricionista_id', $nutricionistas, $especialidad->nutricionista_id, ['class' => 'form-control']) !!}
                         </div>
 
                         </div>

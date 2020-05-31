@@ -129,7 +129,7 @@ class PacienteController extends Controller
      */
     public function destroy($id)
     {
-        $paciente= User::find($id)->where('userType','=','paciente');
+        $paciente= User::find($id);
         $paciente->delete();
         flash('Paciente borrado correctamente');
 

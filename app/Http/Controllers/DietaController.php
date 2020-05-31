@@ -157,10 +157,10 @@ class DietaController extends Controller
     }
 
 
-    public function lunes($id)
+    public function lunes($plan_id)
     {
         //filtrar dietas del lunes:
-        $plans=Plan::all()->pluck('name','id');
+        $plans=Plan::all()->where('p')->pluck('name','id');
 
         $dieta = Dieta::all()->where('semanal','=','lunes');
 
@@ -169,7 +169,7 @@ class DietaController extends Controller
     }
     public function martes($id)
     {
-        $plans=Plan::all()->pluck('name','id');
+        $plans=Plan::all()->where('$dieta->plan_id','=', 'plan_id')->pluck('name','id');
 
         $dieta = Dieta::all()->where('semanal','=','martes');
 
